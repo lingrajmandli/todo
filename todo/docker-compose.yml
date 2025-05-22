@@ -1,18 +1,6 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres
-    container_name: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_DB: tododb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: mynewpassword
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
   todo-app:
     build: .
     container_name: todo-app
@@ -21,9 +9,9 @@ services:
     depends_on:
       - postgres
     environment:
-      SPRING_DATASOURCE_URL: postgresql://todo_db_12ho_user:YvunnJZ3Zrh1wu1zem1tnkJBT5iAEvAo@dpg-d0j3006mcj7s73aj9g30-a.oregon-postgres.render.com/todo_db_12ho
-      SPRING_DATASOURCE_USERNAME: todo_db_12ho_user
-      SPRING_DATASOURCE_PASSWORD: YvunnJZ3Zrh1wu1zem1tnkJBT5iAEvAo
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-d0n00em3jp1c738oaj70-a.oregon-postgres.render.com/tododb_4k7h
+      SPRING_DATASOURCE_USERNAME: todouser
+      SPRING_DATASOURCE_PASSWORD: PUIPDX0IiwJCLr5FDmQJFy2RfmLLiWHZ
 
 
 volumes:
